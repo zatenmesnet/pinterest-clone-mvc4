@@ -7,10 +7,10 @@
 <div class="pin bigpin" bpin_id="@Model.Post.id">
     <div class="owner">
         <a href="#" class="button follow_button">Follow</a>
-        <a class="owner_img" href="http://localhost:18276/Profile/?id=@Model.Profile.id">
-            <img alt="@Model.Profile.email" src="http://localhost:18276/images/avatar.jpg" />
+        <a class="owner_img" href="http://localhost:18276/Profile/?id=@Model.Profile.UserId">
+            <img alt="@Model.Profile.UserName" src="http://localhost:18276/images/avatar.jpg" />
         </a>
-        <p class="owner_name"><a href="http://localhost:18276/Profile/?id=@Model.Profile.id">@Model.Profile.email</a></p>
+        <p class="owner_name"><a href="http://localhost:18276/Profile/?id=@Model.Profile.UserId">@Model.Profile.UserName</a></p>
         <p class="owner_when">@Model.Post.dateuploaded</p>
     </div>
     <div class="holder">

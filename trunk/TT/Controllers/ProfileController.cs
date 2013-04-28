@@ -17,7 +17,7 @@ namespace TT.Controllers
                 return HttpNotFound();
 
             var db = new DBModel();
-            ViewBag.ProfileName = db.GetProfile(id).email;
+            ViewBag.ProfileName = db.GetProfile(id).UserName;
             return View(db.GetPosts(id));
         }
 
