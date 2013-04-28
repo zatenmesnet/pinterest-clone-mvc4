@@ -1,0 +1,36 @@
+﻿@model TT.Models.PostUserCommentCombined
+
+@{
+    Layout = null;
+}
+
+<div class="pin bigpin" bpin_id="@Model.Post.id">
+    <div class="owner">
+        <a href="#" class="button follow_button">Follow</a>
+        <a class="owner_img" href="http://localhost:18276/Profile/?id=@Model.Profile.id">
+            <img alt="@Model.Profile.email" src="http://localhost:18276/images/avatar.jpg" />
+        </a>
+        <p class="owner_name"><a href="http://localhost:18276/Profile/?id=@Model.Profile.id">@Model.Profile.email</a></p>
+        <p class="owner_when">@Model.Post.dateuploaded</p>
+    </div>
+    <div class="holder">
+        <div class="actions">
+            <!-- TODO -->
+        </div>
+        <a class="image" href="#" title="@Model.Post.title">
+            <img alt="@Model.Post.title" src="http://localhost:18276/@Model.Post.filename" style="width: @(Model.Width)px; height: @(Model.Heigth)px;" />
+        </a>
+    </div>
+
+    <p class="desc">@Model.Post.title</p>
+
+    <div class="comments">
+@foreach (var item in Model.Comments)
+{
+        <div class="comment" id="@item.id">
+            <p>Comment from @item.name <span>@item.datetime</span>:</p>
+            <p>@item.text</p>
+        </div>
+}
+    </div>   
+</div>

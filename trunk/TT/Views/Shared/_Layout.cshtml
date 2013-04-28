@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>TT - @ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/sitescript")
+    </head>
+    <body>
+        <!-- header panel -->
+        <div class="header_panel">
+
+            <!-- logo -->
+            <a href="" class="logo">TickTacks.com</a>
+
+            <!-- search form -->
+            <form action="" method="get" class="search">
+                <input autocomplete="off" name="q" size="27" placeholder="Search" type="text" />
+                <input name="search" value="search" type="submit" />
+            </form>
+
+            <!-- navigation menu -->
+            <ul class="nav">
+                <li>
+                    <a href="#">About<span></span></a>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Pin It Button</a></li>
+                        <li><a href="#" target="_blank">For Businesses</a></li>
+                        <li class="div"><a href="#">Careers</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li class="div"><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Copyright</a></li>
+                        <li><a href="#">Trademark</a></li>
+                    </ul>
+                </li>
+                @RenderSection("menu_elements", required: false)
+            </ul>
+
+        </div>
+        @RenderSection("extra_data", required: false)
+        @RenderSection("profile", required: false)
+        <!-- main container -->
+        <div class="main_container">            
+            @RenderBody()
+        </div>
+    </body>
+</html>

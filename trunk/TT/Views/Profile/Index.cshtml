@@ -1,0 +1,34 @@
+﻿@model IEnumerable<TT.Models.Post>
+
+@{
+    ViewBag.Title = "Profile " + @ViewBag.ProfileName;
+}
+
+@section profile{
+    <h2 class="pname">Profile @ViewBag.ProfileName</h2>
+}
+
+@foreach (var item in Model)
+{
+    <!-- post @Html.DisplayFor(modelItem => item.id) -->
+    <div class="pin" pin_id="@Html.DisplayFor(modelItem => item.id)">
+        <div class="holder">
+            <div class="actions">            
+                <a href="#" class="button comment_tr">Comment</a>
+            </div>
+            <a class="image ajax" href="http://localhost:18276/Service/?id=@Html.DisplayFor(modelItem => item.id)" title="@Html.DisplayFor(modelItem => item.title)">
+                <img alt="@Html.DisplayFor(modelItem => item.title)" src="http://localhost:18276/@Html.DisplayFor(modelItem => item.filename)">
+            </a>
+        </div>
+        <p class="desc">@Html.DisplayFor(modelItem => item.title)</p>
+        <p class="info">
+            <span class="LikesCount"><strong>@Html.DisplayFor(modelItem => item.like_count)</strong> likes</span>
+            <span>@Html.DisplayFor(modelItem => item.repin_count) repins</span>
+            <span>@Html.DisplayFor(modelItem => item.comments_count) comments</span>
+        </p>
+        <form class="comment" method="post" action="" style="display: none" onsubmit="return submitComment(this, @Html.DisplayFor(modelItem => item.id))">
+            <textarea placeholder="Add a comment..." maxlength="255" name="comment"></textarea>
+            <input type="submit" class="button" value="Comment" />
+        </form>
+    </div>
+}
