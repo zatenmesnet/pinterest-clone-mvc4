@@ -1,6 +1,8 @@
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\TT.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\TT.pdb
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Antlr3.Runtime.dll
+c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Dapper.dll
+c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DapperExtensions.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.AspNet.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.Core.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OAuth.Consumer.dll
@@ -26,6 +28,9 @@ c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\System.Web.WebP
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\WebGrease.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\WebMatrix.Data.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\WebMatrix.WebData.dll
+c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Dapper.pdb
+c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Dapper.xml
+c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DapperExtensions.pdb
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\EntityFramework.xml
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Newtonsoft.Json.xml
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\System.Net.Http.xml
@@ -48,11 +53,5 @@ c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OAuth.xml
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OpenId.xml
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.csprojResolveAssemblyReference.cache
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.pdb
-c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Dapper.dll
-c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DapperExtensions.dll
-c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Dapper.pdb
-c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Dapper.xml
-c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DapperExtensions.pdb

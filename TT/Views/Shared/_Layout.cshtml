@@ -39,15 +39,104 @@
                         <li><a href="#">Trademark</a></li>
                     </ul>
                 </li>
-                @RenderSection("menu_elements", required: false)
+                @if (Request.IsAuthenticated)
+                {
+                    <li><a href="#add_form" id="add_pop">Add +</a></li>
+                    <li>
+                        @Html.ActionLink("Profile", "Index", "Profile", new { id = WebSecurity.GetUserId(User.Identity.Name) }, null)
+                        <ul>
+                            <li><a href="#">Invite Friends</a></li>
+                            <li><a href="#">Find Friends</a></li>
+                            <li class="div"><a href="#">Boards</a></li>
+                            <li><a href="#">Pins</a></li>
+                            <li><a href="#">Likes</a></li>
+                            <li class="div">@Html.ActionLink("Settings", "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+                            <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })){@Html.AntiForgeryToken()<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>}</li>
+                        </ul>
+                    </li>                    
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                }
             </ul>
 
         </div>
-        @RenderSection("extra_data", required: false)
+
+        @if (!Request.IsAuthenticated)
+        {
+            <!-- join form -->
+            <a href="#x" class="overlay2" id="join_form"></a>
+            <div class="popup">
+                <div class="header">
+                    <a class="close" href="#close">x</a>
+                    <h2>Create your account</h2>
+                </div>
+
+                <form method="POST" action="service.php">
+                    <ul class="ctrl_grp">
+                        <li>
+                            <input type="text" name="email" />
+                            <label>Email Address</label>
+                            <span class="fff"></span>
+                        </li>
+                        <li>
+                            <input type="password" name="password" />
+                            <label>Password</label>
+                            <span class="fff"></span>
+                        </li>
+                        <li>
+                            <input type="text" name="first_name" />
+                            <label>First Name</label>
+                            <span class="fff"></span>
+                        </li>
+                        <li>
+                            <input type="text" name="last_name" />
+                            <label>Last Name</label>
+                            <span class="fff"></span>
+                        </li>
+                    </ul>
+                    <div>
+                        <input type="hidden" name="Join" value="Join" />
+                        <button class="submit_button" type="submit">Create Account</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- login form -->
+            <a href="#x" class="overlay3" id="login_form"></a>
+            <div class="popup">
+                <div class="header">
+                    <a class="close" href="#close">x</a>
+                    <h2>Login</h2>
+                </div>
+
+                <form method="POST" action="http://localhost:18276/Home/Login">
+                    <ul class="ctrl_grp">
+                        <li>
+                            <input type="text" name="email" id="id_email">
+                            <label>Email</label>
+                            <span class="fff"></span>
+                        </li>
+                        <li>
+                            <input type="password" name="password" id="id_password">
+                            <label>Password</label>
+                            <span class="fff"></span>
+                        </li>
+                    </ul>
+                    <div>
+                        <button class="submit_button" type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        }
         @RenderSection("profile", required: false)
         <!-- main container -->
         <div class="main_container">            
             @RenderBody()
         </div>
+
+         @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -9,7 +9,7 @@ namespace TT.Models
     {
         public Post Post { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
-        public Profile Profile { get; set; }
+        public UserProfile Profile { get; set; }
         public double Width { get; set; }
         public double Heigth { get; set; }
     }

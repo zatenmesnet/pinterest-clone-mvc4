@@ -11,7 +11,9 @@ namespace TT
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery.js", 
                 "~/Scripts/jquery.masonry.js", 
-                "~/Scripts/jquery.colorbox.js" 
+                "~/Scripts/jquery.colorbox.js",
+                "~/Scripts/jquery.validate.js",
+                "~/Scripts/jquery.validate.unobtrusive.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/sitescript").Include(

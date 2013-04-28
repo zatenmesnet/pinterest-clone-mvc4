@@ -5,14 +5,13 @@ using System.Web;
 using System.Data.SqlClient;
 using Dapper;
 using System.Drawing;
-
-using System.Diagnostics;
+using System.Configuration;
 
 namespace TT.Models
 {
     public class DBModel
     {
-        public string ConnectionString = @"Integrated Security=True;Data Source=127.0.0.1;Initial Catalog=TT";
+        public string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public IEnumerable<Post> GetPosts()
         {
@@ -75,21 +74,21 @@ namespace TT.Models
             return comments;
         }
 
-        public Profile GetProfile(int i, SqlConnection c = null)
+        public UserProfile GetProfile(int i, SqlConnection c = null)
         {
-            string sql = @"Select * from profiles where id = @i";
-            Profile profile = null;
+            string sql = @"Select * from UserProfile where UserId = @i";
+            UserProfile profile = null;
             if (c == null)
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    profile = conn.Query<Profile>(sql, new { i = i }).Single();
+                    profile = conn.Query<UserProfile>(sql, new { i = i }).Single();
                 }
             }
             else
             {
-                profile = c.Query<Profile>(sql, new { i = i }).Single();
+                profile = c.Query<UserProfile>(sql, new { i = i }).Single();
             }
             return profile;
         }
