@@ -55,4 +55,3 @@ c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.dll
 c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.pdb
-c:\users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.csprojResolveAssemblyReference.cache

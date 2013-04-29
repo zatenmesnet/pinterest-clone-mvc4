@@ -21,5 +21,13 @@ namespace TT.Controllers
             return View(db.GetPostCommentsAndUser(id));
         }
 
+        public ActionResult Comments(int id = -1)
+        {
+            if (id == -1)
+                return HttpNotFound();
+
+            var db = new DBModel();
+            return View(db.GetComments(id));
+        }
     }
 }
