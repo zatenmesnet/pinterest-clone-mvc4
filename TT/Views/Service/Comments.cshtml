@@ -1,0 +1,11 @@
+﻿@model IEnumerable<TT.Models.Comments>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+        <div class="comment" id="@item.id">
+            <p>Comment from @item.name <span>@item.dateposted</span>:</p>
+            <p>@item.text</p>
+        </div>
+}

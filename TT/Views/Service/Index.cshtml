@@ -6,7 +6,14 @@
 
 <div class="pin bigpin" bpin_id="@Model.Post.id">
     <div class="owner">
+    @if (Request.IsAuthenticated)
+    {
         <a href="#" class="button follow_button">Follow</a>
+    }
+    else
+    {
+        <a href="http://localhost:18276/Account/Login" class="button follow_button">Follow</a>
+    }
         <a class="owner_img" href="http://localhost:18276/Profile/?id=@Model.Profile.UserId">
             <img alt="@Model.Profile.UserName" src="http://localhost:18276/images/avatar.jpg" />
         </a>
