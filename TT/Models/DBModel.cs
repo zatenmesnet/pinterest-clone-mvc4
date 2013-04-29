@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using Dapper;
+using DapperExtensions;
 using System.Drawing;
 using System.Configuration;
 
@@ -13,63 +14,63 @@ namespace TT.Models
     {
         public string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public IEnumerable<Post> GetPosts()
+        public IEnumerable<Posts> GetPosts()
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                var posts = conn.Query<Post>("Select * from posts");
+                var posts = conn.Query<Posts>("Select * from posts");
                 return posts;
             }
         }
 
-        public IEnumerable<Post> GetPosts(int i)
+        public IEnumerable<Posts> GetPosts(int i)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                var posts = conn.Query<Post>("Select * from posts where owner = @id", new { id = i } );
+                var posts = conn.Query<Posts>("Select * from posts where owner = @id", new { id = i } );
                 return posts;
             }
         }
 
-        public Post GetPost(int i, SqlConnection c = null)
+        public Posts GetPost(int i, SqlConnection c = null)
         {
             //Under some circumstances we want to use an already open connection
             //and not create a new one
             string sql = @"Select * from posts where id = @i";
-            Post post;
+            Posts post;
             if (c == null)
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    post = conn.Query<Post>(sql, new { i = i }).Single();
+                    post = conn.Query<Posts>(sql, new { i = i }).Single();
                 }
             }
             else
             {
-                post = c.Query<Post>(sql, new { i = i }).Single();
+                post = c.Query<Posts>(sql, new { i = i }).Single();
             }
 
             return post;
         }
 
-        public IEnumerable<Comment> GetComments(int i, SqlConnection c = null)
+        public IEnumerable<Comments> GetComments(int i, SqlConnection c = null)
         {
             string sql = @"Select * from comments where item_id = @i";
-            IEnumerable<Comment> comments = null;
+            IEnumerable<Comments> comments = null;
             if (c == null)
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    comments = conn.Query<Comment>(sql, new { i = i });
+                    comments = conn.Query<Comments>(sql, new { i = i });
                 }
             }
             else
             {
-                comments = c.Query<Comment>(sql, new { i = i });
+                comments = c.Query<Comments>(sql, new { i = i });
             }
             return comments;
         }
@@ -109,6 +110,24 @@ namespace TT.Models
                 var profile = GetProfile(post.owner, conn);
 
                 return new PostUserCombined() { Post = post, Profile = profile };
+            }
+        }
+
+        public Comments PostComment(int id, string comment, string username)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                Comments c = new Comments() { dateposted = DateTime.UtcNow, item_id = id, text = comment, name = username };
+
+                Posts p = this.GetPost(id, conn);
+                p.comments_count++;
+
+                var i = conn.Insert(c);
+                conn.Update(p);
+                c.id = i;
+                return c;
             }
         }
     }

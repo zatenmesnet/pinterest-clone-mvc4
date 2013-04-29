@@ -7,7 +7,7 @@ namespace TT.Models
 {
     public class PostUserCombined
     {
-        public Post Post { get; set; }
+        public Posts Post { get; set; }
         public UserProfile Profile { get; set; }
     }
 }

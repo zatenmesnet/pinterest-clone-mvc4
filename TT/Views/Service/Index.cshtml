@@ -24,7 +24,17 @@
 
     <p class="desc">@Model.Post.title</p>
 
-    <div class="comments">
-        
-    </div>   
+    <div class="comments"></div>   
+
+    @if (Request.IsAuthenticated)
+    {
+        <form class="comment" method="post" action="#">
+            <textarea placeholder="Add a comment..." maxlength="255" id="pcomment"></textarea>
+            <button type="button" class="button" onclick="return submitCommentAjx(@Model.Post.id, this.form.pcomment.value)">Comment</button>
+        </form>
+    }
+    else
+    {
+        <span>Please @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) to make a comment</span>
+    }
 </div>
