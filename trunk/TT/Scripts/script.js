@@ -45,17 +45,32 @@ function fileSelectHandler() {
 function submitComment(form, id) {
     $.ajax({ 
       type: 'POST',
-      url: 'service.php',
-      data: 'add=comment&id=' + id + '&comment=' + $(form).find('textarea').val(),
+      url: 'http://localhost:18276/Service/PostComment/',
+      data: 'id=' + id + '&comment=' + $(form).find('textarea').val(),
       cache: false, 
       success: function(html){
-        if (html) {
-          location.reload();
-        }
+        location.reload();
       } 
     });
     return false;
 }
+
+    function submitCommentAjx(id, comment) {
+        $.ajax({ 
+          type: 'POST',
+          url: 'http://localhost:18276/Service/PostCommentAjax/',
+          data: 'id=' + id + '&comment=' + comment,
+          cache: false, 
+          success: function(html){
+            if (html != -1) {
+              $('.comments').prepend(html);
+              $(this).colorbox.resize();
+            }
+            else
+                alert("Comment not posted");
+          } 
+        });
+    }
 
 $(document).ready(function(){
 
@@ -120,8 +135,6 @@ $(document).ready(function(){
         },
         onClosed:function(){
         },
-        maxWidth: "800px",
-        maxHeight: "600px",
     });
 
     // onclick event handler (for like button)

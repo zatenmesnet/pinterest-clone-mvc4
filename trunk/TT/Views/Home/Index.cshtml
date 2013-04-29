@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TT.Models.Post>
+﻿@model IEnumerable<TT.Models.Posts>
 
 @{
     ViewBag.Title = "Home";
@@ -9,8 +9,11 @@
     <!-- post @Html.DisplayFor(modelItem => item.id) -->
     <div class="pin" pin_id="@Html.DisplayFor(modelItem => item.id)">
         <div class="holder">
-            <div class="actions">            
+            <div class="actions">    
+             @if (Request.IsAuthenticated)
+             {        
                 <a href="#" class="button comment_tr">Comment</a>
+             }
             </div>
             <a class="image ajax" href="http://localhost:18276/Service/?id=@Html.DisplayFor(modelItem => item.id)" title="@Html.DisplayFor(modelItem => item.title)">
                 <img alt="@Html.DisplayFor(modelItem => item.title)" src="@Html.DisplayFor(modelItem => item.filename)">

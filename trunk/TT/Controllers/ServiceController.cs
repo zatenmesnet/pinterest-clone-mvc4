@@ -29,5 +29,27 @@ namespace TT.Controllers
             var db = new DBModel();
             return View(db.GetComments(id));
         }
+
+        [HttpPost]
+        public string PostCommentAjax(int id, string comment)
+        {
+            if (id == -1 || String.IsNullOrEmpty(comment))
+                return "-1";
+
+            var db = new DBModel();
+            var c = db.PostComment(id, comment, User.Identity.Name);
+
+            return "<div class=\"comment\" id=\"" + c.id + "\"><p>Comment from " + c.name + " <span>" + c.dateposted + "</span>:</p><p>" + c.text + "</p></div>";
+        }
+
+        [HttpPost]
+        public void PostComment(int id, string comment)
+        {
+            if (id == -1 || String.IsNullOrEmpty(comment))
+                return;
+
+            var db = new DBModel();
+            var c = db.PostComment(id, comment, User.Identity.Name);
+        }
     }
 }
