@@ -5,12 +5,9 @@ using System.Web;
 
 namespace TT.Models
 {
-    public class PostUserCommentCombined
+    public class PostUserCombined
     {
         public Post Post { get; set; }
-        public IEnumerable<Comment> Comments { get; set; }
         public UserProfile Profile { get; set; }
-        public double Width { get; set; }
-        public double Heigth { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model TT.Models.PostUserCommentCombined
+﻿@model TT.Models.PostUserCombined
 
 @{
     Layout = null;
@@ -18,19 +18,13 @@
             <!-- TODO -->
         </div>
         <a class="image" href="#" title="@Model.Post.title">
-            <img alt="@Model.Post.title" src="http://localhost:18276/@Model.Post.filename" style="width: @(Model.Width)px; height: @(Model.Heigth)px;" />
+            <img alt="@Model.Post.title" src="http://localhost:18276/@Model.Post.filename" />
         </a>
     </div>
 
     <p class="desc">@Model.Post.title</p>
 
     <div class="comments">
-@foreach (var item in Model.Comments)
-{
-        <div class="comment" id="@item.id">
-            <p>Comment from @item.name <span>@item.datetime</span>:</p>
-            <p>@item.text</p>
-        </div>
-}
+        
     </div>   
 </div>

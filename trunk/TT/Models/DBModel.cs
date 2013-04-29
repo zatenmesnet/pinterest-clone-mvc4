@@ -93,25 +93,22 @@ namespace TT.Models
             return profile;
         }
 
-        public PostUserCommentCombined GetPostCommentsAndUser(int id)
+        public PostUserCombined GetPostCommentsAndUser(int id)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                //Need to do testing to see if joining these 3 into one call is faster
-                //than 3 separate selects.  According to articles about Pinterest, they
+                //Need to do testing to see if joining these 2 into one call is faster
+                //than 2 separate selects.  According to articles about Pinterest, they
                 //don't use joins anymore for scaling reasons. 
 
-                //Since we're doing 3 selects in a row we should use the same connection
-                //for all 3.  These 3 methods were written so they could either create their own
+                //Since we're doing 2 selects in a row we should use the same connection
+                //for all 2.  These 2 methods were written so they could either create their own
                 //or use one passed into it.
                 var post = GetPost(id, conn);
-                var comments = GetComments(post.id, conn);
                 var profile = GetProfile(post.owner, conn);
 
-                Image img = Image.FromFile(@"C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TT\" + post.filename);
-
-                return new PostUserCommentCombined() { Post = post, Comments = comments, Profile = profile, Width = img.Width, Heigth = img.Height };
+                return new PostUserCombined() { Post = post, Profile = profile };
             }
         }
     }

@@ -98,11 +98,15 @@ $(document).ready(function(){
         onLoad:function(){
         },
         onComplete:function(){
+            //resize
             $(this).colorbox.resize();
+
+            //get pin id
             var iPinId = $(this).parent().parent().attr('pin_id');
+
+            //get comments
             $.ajax({ 
-              url: 'service.php',
-              data: 'get=comments&id=' + iPinId,
+              url: 'http://localhost:18276/Service/Comments/' + iPinId,
               cache: false, 
               success: function(html){
                 $('.comments').append(html);
@@ -115,7 +119,9 @@ $(document).ready(function(){
         onCleanup:function(){
         },
         onClosed:function(){
-        }
+        },
+        maxWidth: "800px",
+        maxHeight: "600px",
     });
 
     // onclick event handler (for like button)
