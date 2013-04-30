@@ -203,9 +203,13 @@
     <Content Include="Images\down.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\search.gif" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery.colorbox.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
+    <Content Include="Scripts\jquery.iframe-transport.js" />
     <Content Include="Scripts\jquery.masonry.js" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\script.js" />
@@ -249,6 +253,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Service\Comments.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Service\AddPost.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
