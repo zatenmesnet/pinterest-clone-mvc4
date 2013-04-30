@@ -13,7 +13,11 @@ namespace TT
                 "~/Scripts/jquery.masonry.js", 
                 "~/Scripts/jquery.colorbox.js",
                 "~/Scripts/jquery.validate.js",
-                "~/Scripts/jquery.validate.unobtrusive.js"
+                "~/Scripts/jquery.validate.unobtrusive.js",
+                "~/Scripts/jquery-ui-1.8.20.js",
+                "~/Scripts/jquery.ui.widget.js",
+                "~/Scripts/jquery.fileupload.js",
+                "~/Scripts/jquery.iframe-transport.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/sitescript").Include(

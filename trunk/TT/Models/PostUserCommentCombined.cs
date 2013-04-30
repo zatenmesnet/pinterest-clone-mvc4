@@ -9,5 +9,7 @@ namespace TT.Models
     {
         public Posts Post { get; set; }
         public UserProfile Profile { get; set; }
+        public string Width { get; set; }
+        public string Height { get; set; }
     }
 }

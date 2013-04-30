@@ -1,47 +1,3 @@
-/**
- *
- * Pinterest-like script - a series of tutorials
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2012, Script Tutorials
- * http://www.script-tutorials.com/
- */
-
-
-function fileSelectHandler() {
-    // get selected file
-    var oFile = $('#image_file')[0].files[0];
-
-    // html5 file upload
-    var formData = new FormData($('#upload_form')[0]);
-    $.ajax({
-        url: 'upload.php', //server script to process data
-        type: 'POST',
-        // ajax events
-        beforeSend: function() {
-        },
-        success: function(e) {
-            $('#upload_result').html('Thank you for your photo').show();
-
-            setTimeout(function() {
-                $("#upload_result").hide().empty();
-                window.location.href = 'index.php';
-            }, 4000);
-        },
-        error: function(e) {
-            $('#upload_result').html('Error while processing uploaded image');
-        },
-        // form data
-        data: formData,
-        // options to tell JQuery not to process data or worry about content-type
-        cache: false,
-        contentType: false,
-        processData: false
-    });
-}
-
 function submitComment(form, id) {
     $.ajax({ 
       type: 'POST',
@@ -55,50 +11,34 @@ function submitComment(form, id) {
     return false;
 }
 
-    function submitCommentAjx(id, comment) {
-        $.ajax({ 
-          type: 'POST',
-          url: 'http://localhost:18276/Service/PostCommentAjax/',
-          data: 'id=' + id + '&comment=' + comment,
-          cache: false, 
-          success: function(html){
-            if (html != -1) {
-              $('.comments').prepend(html);
-              $(this).colorbox.resize();
-            }
-            else
-                alert("Comment not posted");
-          } 
-        });
-    }
-
-$(document).ready(function(){
-
-    // file field change handler
-    $('#image_file').change(function(){
-        var file = this.files[0];
-        name = file.name;
-        size = file.size;
-        type = file.type;
-
-        // extra validation
-        if (name && size)  {
-            if (! file.type.match('image.*')) {
-                alert("Select image please");
-            } else {
-                fileSelectHandler();
-            }
+function submitCommentAjx(id, comment) {
+    $.ajax({ 
+        type: 'POST',
+        url: 'http://localhost:18276/Service/PostCommentAjax/',
+        data: 'id=' + id + '&comment=' + comment,
+        cache: false, 
+        success: function(html){
+        if (html != -1) {
+            $('.comments').prepend(html);
+            $(this).colorbox.resize();
         }
+        else
+            alert("Comment not posted");
+        } 
     });
+}
 
-    // masonry initialization
+$(window).load(function(){
+// masonry initialization
     $('.main_container').masonry({
         // options
         itemSelector : '.pin',
         isAnimated: true,
         isFitWidth: true
     });
+});
 
+$(document).ready(function(){
     // onclick event handler (for comments)
     $('.comment_tr').click(function () {
         $(this).toggleClass('disabled');
@@ -106,6 +46,27 @@ $(document).ready(function(){
             $('.main_container').masonry();
         });
     }); 
+
+    $('#addpost').colorbox({
+        width: "800px",
+        height: "600px",
+        onComplete: function(){
+             $("#tabs").tabs();
+             $('#fileupload').fileupload({
+                dataType: 'json',
+                done: function (e, data) {
+                    window.location.replace("http://localhost:18276/");
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress .bar').css(
+                        'width',
+                        progress + '%'
+                    );
+                },
+            });
+        },
+    });
 
     $('.ajax').colorbox({
         onOpen:function(){

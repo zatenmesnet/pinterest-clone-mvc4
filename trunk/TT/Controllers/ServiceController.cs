@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TT.Models;
+using System.IO;
+using WebMatrix.WebData;
 
 namespace TT.Controllers
 {
@@ -50,6 +52,29 @@ namespace TT.Controllers
 
             var db = new DBModel();
             var c = db.PostComment(id, comment, User.Identity.Name);
+        }
+
+        public ActionResult AddPost()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public void Upload()
+        {
+            // Loop through each file in the request
+            for (int i = 0; i < HttpContext.Request.Files.Count; i++)
+            {
+                // Pointer to file
+                var file = HttpContext.Request.Files[i];
+
+                // Save file to server
+                var fullPath = @"C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TT\photos\" + file.FileName;
+                file.SaveAs(fullPath);
+
+                var db = new DBModel();
+                db.PostPost(file.FileName, @".\photos\" + file.FileName, WebSecurity.GetUserId(User.Identity.Name), DateTime.UtcNow);
+            }
         }
     }
 }

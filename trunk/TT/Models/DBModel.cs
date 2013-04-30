@@ -108,8 +108,8 @@ namespace TT.Models
                 //or use one passed into it.
                 var post = GetPost(id, conn);
                 var profile = GetProfile(post.owner, conn);
-
-                return new PostUserCombined() { Post = post, Profile = profile };
+                Image img = Image.FromFile(@"C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TT\" + post.filename);
+                return new PostUserCombined() { Post = post, Profile = profile, Width = img.Width.ToString(), Height = img.Height.ToString() };
             }
         }
 
@@ -128,6 +128,18 @@ namespace TT.Models
                 conn.Update(p);
                 c.id = i;
                 return c;
+            }
+        }
+
+        public void PostPost(string title, string filename, int owner, DateTime date)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+
+                Posts p = new Posts() { title = title, filename = filename, owner = owner, dateuploaded = date };
+
+                var i = conn.Insert(p);
             }
         }
     }
