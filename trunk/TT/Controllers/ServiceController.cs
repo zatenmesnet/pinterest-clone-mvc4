@@ -73,8 +73,15 @@ namespace TT.Controllers
                 file.SaveAs(fullPath);
 
                 var db = new DBModel();
-                db.PostPost(file.FileName, @".\photos\" + file.FileName, WebSecurity.GetUserId(User.Identity.Name), DateTime.UtcNow);
+                db.PostPost("$" + HttpContext.Request.Form["symbol"], @".\photos\" + file.FileName, WebSecurity.GetUserId(User.Identity.Name), DateTime.UtcNow);
             }
+        }
+
+        public ActionResult TradingView(string symbol)
+        {
+            ViewBag.Symbol = "FX:" + symbol;
+
+            return View();
         }
     }
 }
