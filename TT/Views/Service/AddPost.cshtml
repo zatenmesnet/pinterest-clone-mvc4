@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <div id="tabs">
+    <ul>
+        <li class="context-tab"><a href="#upload-tab">Upload</a></li>
+        <li class="context-tab"><a href="#link-tab">Link</a></li>
+    </ul>
+    <div id="upload-tab">
+        <form id="fileupload" action="http://localhost:18276/Service/Upload" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <label>Symbol: <input type="text" name="symbol"></label>
+            </div>
+            <input id="fileupload" type="file" name="files[]" data-url="" multiple>
+        </form>
+        <div id="progress">
+            <div class="bar" style="width: 0%;"></div>
+        </div>
+        <div id="upload-button"></div>
+    </div>
+    <div id="link-tab">Link</div>
+  </div>  
+</body>
+</html>

@@ -29,7 +29,17 @@
         </a>
     </div>
 
-    <p class="desc">@Model.Post.title</p>
+    <p class="desc">
+    @if (Model.Post.title.StartsWith("$"))
+    {
+        var symbol = Model.Post.title.Replace("$", "");
+        @Html.ActionLink(Model.Post.title, "TradingView", "Service", new { symbol = symbol }, null)
+    }
+    else
+    {
+        @Model.Post.title
+    }    
+    </p>
 
     <div class="comments"></div>   
 

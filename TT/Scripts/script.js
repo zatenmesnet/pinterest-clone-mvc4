@@ -57,6 +57,15 @@ $(document).ready(function(){
                 done: function (e, data) {
                     window.location.replace("http://localhost:18276/");
                 },
+                add: function (e, data) {
+                    $("#upload-button").empty();
+                    data.context = $('<button/>').text('Upload')
+                        .appendTo($("#upload-button"))
+                        .click(function () {
+                            data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                            data.submit();
+                        });
+                },
                 progressall: function (e, data) {
                     var progress = parseInt(data.loaded / data.total * 100, 10);
                     $('#progress .bar').css(
