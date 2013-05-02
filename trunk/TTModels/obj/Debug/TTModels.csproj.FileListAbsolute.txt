@@ -1,0 +1,7 @@
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTModels\bin\Debug\TTModels.dll
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTModels\bin\Debug\TTModels.pdb
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTModels\bin\Debug\EntityFramework.dll
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTModels\bin\Debug\EntityFramework.xml
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTModels\obj\Debug\TTModels.dll
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTModels\obj\Debug\TTModels.pdb
+C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TTModels\obj\Debug\TTModels.csprojResolveAssemblyReference.cache

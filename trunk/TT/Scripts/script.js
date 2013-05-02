@@ -1,7 +1,7 @@
 function submitComment(form, id) {
     $.ajax({ 
       type: 'POST',
-      url: 'http://localhost:18276/Service/PostComment/',
+      url: 'http://localhost:14074/Service/PostComment/',
       data: 'id=' + id + '&comment=' + $(form).find('textarea').val(),
       cache: false, 
       success: function(html){
@@ -14,7 +14,7 @@ function submitComment(form, id) {
 function submitCommentAjx(id, comment) {
     $.ajax({ 
         type: 'POST',
-        url: 'http://localhost:18276/Service/PostCommentAjax/',
+        url: 'http://localhost:14074/Service/PostCommentAjax/',
         data: 'id=' + id + '&comment=' + comment,
         cache: false, 
         success: function(html){
@@ -55,7 +55,7 @@ $(document).ready(function(){
              $('#fileupload').fileupload({
                 dataType: 'json',
                 done: function (e, data) {
-                    window.location.replace("http://localhost:18276/");
+                    window.location.replace("http://localhost:14074/");
                 },
                 add: function (e, data) {
                     $("#upload-button").empty();
@@ -91,7 +91,7 @@ $(document).ready(function(){
 
             //get comments
             $.ajax({ 
-              url: 'http://localhost:18276/Service/Comments/' + iPinId,
+              url: 'http://localhost:14074/Service/Comments/' + iPinId,
               cache: false, 
               success: function(html){
                 $('.comments').append(html);

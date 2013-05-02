@@ -176,12 +176,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers.cs" />
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\DBModel.cs" />
-    <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\PostUserCommentCombined.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TTRESTService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\colorbox.css" />
@@ -227,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -260,6 +257,15 @@
   <ItemGroup>
     <Content Include="Views\Service\TradingView.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TTModels\TTModels.csproj">
+      <Project>{4088E87D-9CF3-44A8-B936-D31C6B2F21E0}</Project>
+      <Name>TTModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -276,7 +282,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>18276</DevelopmentServerPort>
+          <DevelopmentServerPort>14074</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

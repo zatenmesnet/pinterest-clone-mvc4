@@ -8,8 +8,8 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using TT.Models;
 using TT.Filters;
+using TTModels;
 namespace TT.Controllers
 {
     [Authorize]

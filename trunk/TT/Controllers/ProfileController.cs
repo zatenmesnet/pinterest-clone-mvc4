@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TT.Models;
 
 namespace TT.Controllers
 {
@@ -13,13 +12,7 @@ namespace TT.Controllers
         // GET: /Profile/
         public ActionResult Index(int id = -1)
         {
-            if (id == -1)
-                return HttpNotFound();
-
-            var db = new DBModel();
-            ViewBag.ProfileName = db.GetProfile(id).UserName;
-            return View(db.GetPosts(id));
+            return View(new TTRESTService().GetPosts(id));
         }
-
     }
 }
