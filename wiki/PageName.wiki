@@ -1,0 +1,4 @@
+- Install SQL Express
+- Create database "TT", run Sql.sql
+- Install IIS express
+- Build projects "TT" and "TTREST"
