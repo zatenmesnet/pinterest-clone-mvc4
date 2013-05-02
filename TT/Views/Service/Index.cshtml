@@ -47,6 +47,24 @@
     {
         <form class="comment" method="post" action="#">
             <textarea placeholder="Add a comment..." maxlength="255" id="pcomment"></textarea>
+            <script>
+                function submitCommentAjx(id, comment) {
+                    $.ajax({ 
+                        type: 'POST',
+                        url: 'http://localhost:15795/api/Comments/' + id,
+                        data: { name: '@(User.Identity.Name)', text: comment },
+                        cache: false, 
+                        success: function(html){
+                        if (html != -1) {
+                            $('.comments').prepend(html);
+                            $(this).colorbox.resize();
+                        }
+                        else
+                            alert("Comment not posted");
+                        } 
+                    });
+                }            
+            </script>
             <button type="button" class="button" onclick="return submitCommentAjx(@Model.Post.id, this.form.pcomment.value)">Comment</button>
         </form>
     }

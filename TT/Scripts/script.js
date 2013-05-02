@@ -11,23 +11,6 @@ function submitComment(form, id) {
     return false;
 }
 
-function submitCommentAjx(id, comment) {
-    $.ajax({ 
-        type: 'POST',
-        url: 'http://localhost:15795/api/Comments/' + id,
-        data: '=' + comment,
-        cache: false, 
-        success: function(html){
-        if (html != -1) {
-            $('.comments').prepend(html);
-            $(this).colorbox.resize();
-        }
-        else
-            alert("Comment not posted");
-        } 
-    });
-}
-
 $(window).load(function(){
 // masonry initialization
     $('.main_container').masonry({
