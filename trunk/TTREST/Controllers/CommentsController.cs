@@ -17,9 +17,9 @@ namespace TTREST.Controllers
         }
 
         // POST api/comments
-        public void Post(int id, [FromBody]string value)
+        public void Post(int id, [FromBody]Comments c)
         {
-            new DBModel().PostComment(id, value, User.Identity.Name);
+            new DBModel().PostComment(id, c.text, c.name);
         }
 
         // PUT api/comments/5
