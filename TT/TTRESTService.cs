@@ -6,12 +6,14 @@ using TTModels;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace TT
 {
     public class TTRESTService
     {
         readonly string baseUri = "http://localhost:15795/api";
+        readonly string basePostUri = "http://localhost:15795";
 
         public IEnumerable<Posts> GetPosts()
         {
@@ -65,6 +67,20 @@ namespace TT
             {
                 Task<String> response = httpClient.GetStringAsync(uri);
                 return JsonConvert.DeserializeObjectAsync<List<Comments>>(response.Result).Result;
+            }
+        }
+
+        public void PostPost(Posts p)
+        {
+            string uri = baseUri + "/Posts/";
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                httpClient.BaseAddress = new Uri(basePostUri);
+                httpClient.DefaultRequestHeaders.Accept.Add(
+                       new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var response = httpClient.PostAsJsonAsync("api/Posts", p).Result;
             }
         }
     }
