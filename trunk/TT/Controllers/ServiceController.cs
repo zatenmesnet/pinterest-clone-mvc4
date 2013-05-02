@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using WebMatrix.WebData;
+using TTModels;
 
 namespace TT.Controllers
 {
@@ -27,29 +28,7 @@ namespace TT.Controllers
                 return HttpNotFound();
 
             return View(new TTRESTService().GetComments(id));
-        }
-
-        //[HttpPost]
-        //public string PostCommentAjax(int id, string comment)
-        //{
-        //    if (id == -1 || String.IsNullOrEmpty(comment))
-        //        return "-1";
-
-        //    var db = new DBModel();
-        //    var c = db.PostComment(id, comment, User.Identity.Name);
-
-        //    return "<div class=\"comment\" id=\"" + c.id + "\"><p>Comment from " + c.name + " <span>" + c.dateposted + "</span>:</p><p>" + c.text + "</p></div>";
-        //}
-
-        //[HttpPost]
-        //public void PostComment(int id, string comment)
-        //{
-        //    if (id == -1 || String.IsNullOrEmpty(comment))
-        //        return;
-
-        //    var db = new DBModel();
-        //    var c = db.PostComment(id, comment, User.Identity.Name);
-        //}
+        }        
 
         public ActionResult AddPost()
         {
@@ -59,19 +38,19 @@ namespace TT.Controllers
         [HttpPost]
         public void Upload()
         {
-            //// Loop through each file in the request
-            //for (int i = 0; i < HttpContext.Request.Files.Count; i++)
-            //{
-            //    // Pointer to file
-            //    var file = HttpContext.Request.Files[i];
+            // Loop through each file in the request
+            for (int i = 0; i < HttpContext.Request.Files.Count; i++)
+            {
+                // Pointer to file
+                var file = HttpContext.Request.Files[i];
 
-            //    // Save file to server
-            //    var fullPath = @"C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TT\photos\" + file.FileName;
-            //    file.SaveAs(fullPath);
+                // Save file to server
+                var fullPath = @"C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TT\photos\" + file.FileName;
+                file.SaveAs(fullPath);
+                Posts p = new Posts() { title = "$" + HttpContext.Request.Form["symbol"], filename = @".\photos\" + file.FileName, owner = WebSecurity.GetUserId(User.Identity.Name), dateuploaded = DateTime.UtcNow };
 
-            //    var db = new DBModel();
-            //    db.PostPost("$" + HttpContext.Request.Form["symbol"], @".\photos\" + file.FileName, WebSecurity.GetUserId(User.Identity.Name), DateTime.UtcNow);
-            //}
+                new TTRESTService().PostPost(p);
+            }
         }
 
         public ActionResult TradingView(string symbol)
