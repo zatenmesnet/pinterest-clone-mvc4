@@ -41,3 +41,7 @@ C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTREST\bin\System.Web.
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTREST\obj\Debug\TTREST.csprojResolveAssemblyReference.cache
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTREST\obj\Debug\TTREST.dll
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TTREST\obj\Debug\TTREST.pdb
+C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TTREST\bin\Microsoft.IdentityModel.dll
+C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TTREST\bin\Thinktecture.IdentityModel.dll
+C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TTREST\bin\Thinktecture.IdentityModel.pdb
+C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TTREST\bin\Thinktecture.IdentityModel.xml
