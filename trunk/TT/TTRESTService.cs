@@ -11,7 +11,7 @@ namespace TT
 {
     public class TTRESTService
     {
-        readonly string baseUri = "http://localhost:14667/api";
+        readonly string baseUri = "http://localhost:15795/api";
 
         public IEnumerable<Posts> GetPosts()
         {
