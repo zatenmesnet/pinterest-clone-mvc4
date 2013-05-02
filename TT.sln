@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TT", "TT\TT.csproj", "{1FC761E9-1E2A-4ACA-8BE7-FFE1591B2B0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTREST", "TTREST\TTREST.csproj", "{9DC8BCC0-0767-4C2C-A310-6A733C8B7FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTModels", "TTModels\TTModels.csproj", "{4088E87D-9CF3-44A8-B936-D31C6B2F21E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{1FC761E9-1E2A-4ACA-8BE7-FFE1591B2B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FC761E9-1E2A-4ACA-8BE7-FFE1591B2B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC761E9-1E2A-4ACA-8BE7-FFE1591B2B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DC8BCC0-0767-4C2C-A310-6A733C8B7FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DC8BCC0-0767-4C2C-A310-6A733C8B7FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DC8BCC0-0767-4C2C-A310-6A733C8B7FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DC8BCC0-0767-4C2C-A310-6A733C8B7FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4088E87D-9CF3-44A8-B936-D31C6B2F21E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4088E87D-9CF3-44A8-B936-D31C6B2F21E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4088E87D-9CF3-44A8-B936-D31C6B2F21E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4088E87D-9CF3-44A8-B936-D31C6B2F21E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

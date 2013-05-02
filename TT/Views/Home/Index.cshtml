@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TT.Models.Posts>
+﻿@model IEnumerable<TTModels.Posts>
 
 @{
     ViewBag.Title = "Home";
@@ -15,7 +15,7 @@
                 <a href="#" class="button comment_tr">Comment</a>
              }
             </div>
-            <a class="image ajax" href="http://localhost:18276/Service/?id=@Html.DisplayFor(modelItem => item.id)" title="@Html.DisplayFor(modelItem => item.title)">
+            <a class="image ajax" href="http://localhost:14074/Service/?id=@Html.DisplayFor(modelItem => item.id)" title="@Html.DisplayFor(modelItem => item.title)">
                 <img alt="@Html.DisplayFor(modelItem => item.title)" src="@Html.DisplayFor(modelItem => item.filename)">
             </a>
         </div>
