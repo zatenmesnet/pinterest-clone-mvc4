@@ -47,7 +47,7 @@ namespace TT.Controllers
                 // Save file to server
                 var fullPath = @"C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TT\photos\" + file.FileName;
                 file.SaveAs(fullPath);
-                Posts p = new Posts() { title = "$" + HttpContext.Request.Form["symbol"], filename = @".\photos\" + file.FileName, owner = WebSecurity.GetUserId(User.Identity.Name), dateuploaded = DateTime.UtcNow };
+                Posts p = new Posts() { title = "$" + HttpContext.Request.Form["tags"], filename = @".\photos\" + file.FileName, owner = WebSecurity.GetUserId(User.Identity.Name), dateuploaded = DateTime.UtcNow };
 
                 new TTRESTService().PostPost(p);
             }

@@ -24,6 +24,18 @@ namespace TTModels
             }
         }
 
+        //starting at i, take j
+        public IEnumerable<Posts> GetPosts(int i, int j)
+        {
+            using (SqlConnection conn = new SqlConnection(ConnectionString))
+            {
+                conn.Open();
+                var posts = conn.Query<Posts>("Select * from posts ORDER BY id OFFSET @i ROWS FETCH NEXT @j ROWS ONLY", new { i = i, j = j } );
+                return posts;
+            }
+        }
+
+        //from user
         public IEnumerable<Posts> GetPosts(int i)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))

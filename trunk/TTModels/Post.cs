@@ -16,5 +16,6 @@ namespace TTModels
         public int repid_in { get; set; }
         public int repin_count { get; set; }
         public int like_count { get; set; }
+        public string tags { get; set; }
     }
 }
