@@ -11,15 +11,19 @@ namespace TTREST.Controllers
     public class PostsController : ApiController
     {
         // GET api/posts
-        public IEnumerable<Posts> Get()
+        public IEnumerable<Posts> GetAllPosts()
         {
-            var db = new DBModel();
-
             return new DBModel().GetPosts();
         }
 
+        public IEnumerable<Posts> GetRange(int start, int limit)
+        {
+            return new DBModel().GetPosts(start, limit);
+        }
+
         // GET api/posts/5
-        public IEnumerable<Posts> Get(int id)
+        // Gets a users posts
+        public IEnumerable<Posts> GetUsersPosts(int id)
         {
             return new DBModel().GetPosts(id);
         }
