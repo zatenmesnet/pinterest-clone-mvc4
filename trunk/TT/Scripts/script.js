@@ -10,15 +10,44 @@ function submitComment(form, id) {
     });
     return false;
 }
+var start = 10;
+var limit = 10;
+$(window).scroll(function()
+{
+    if($(window).scrollTop() == $(document).height() - $(window).height())
+    {
+        $('div#loadmoreajaxloader').show();
+        $.ajax({
+        url: "http://localhost:14252/?start=" + start + "&limit=" + limit,
+        success: function(html)
+        {
+            start += limit;
+            if(html)
+            {
+                $(".main_container").append(html);
+                $('div#loadmoreajaxloader').hide();
+                setupMasonry();
+            }else
+            {
+                $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+            }
+        }
+        });
+    }
+});
 
-$(window).load(function(){
-// masonry initialization
+function setupMasonry(){
+    // masonry initialization
     $('.main_container').masonry({
         // options
         itemSelector : '.pin',
         isAnimated: true,
         isFitWidth: true
     });
+}
+
+$(window).load(function(){
+    setupMasonry();
 });
 
 $(document).ready(function(){
@@ -38,7 +67,7 @@ $(document).ready(function(){
              $('#fileupload').fileupload({
                 dataType: 'json',
                 done: function (e, data) {
-                    window.location.replace("http://localhost:14672/");
+                    window.location.replace("http://localhost:14252/");
                 },
                 add: function (e, data) {
                     $("#upload-button").empty();
@@ -74,7 +103,7 @@ $(document).ready(function(){
 
             //get comments
             $.ajax({ 
-              url: 'http://localhost:14672/Service/Comments/' + iPinId,
+              url: 'http://localhost:14252/Service/Comments/' + iPinId,
               cache: false, 
               success: function(html){
                 $('.comments').append(html);

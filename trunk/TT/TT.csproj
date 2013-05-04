@@ -197,6 +197,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\avatar.jpg" />
     <Content Include="Images\down.png" />
+    <Content Include="Images\loader.gif" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\search.gif" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
@@ -227,9 +228,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Service\Index.cshtml" />
@@ -266,6 +264,12 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Post.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -282,7 +286,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>15616</DevelopmentServerPort>
+          <DevelopmentServerPort>14252</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
