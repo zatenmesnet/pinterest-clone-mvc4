@@ -1,4 +1,3 @@
-C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.csprojResolveAssemblyReference.cache
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\TT.dll
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\TT.pdb
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\Antlr3.Runtime.dll
@@ -56,5 +55,6 @@ C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OAuth.xml
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.csprojResolveAssemblyReference.cache
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.dll
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.pdb

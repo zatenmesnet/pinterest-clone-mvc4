@@ -17,7 +17,18 @@ namespace TT
 
         public IEnumerable<Posts> GetPosts()
         {
-            string uri = baseUri + "/Posts";
+            string uri = baseUri + "/Posts/?start=1&limit=5";
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                Task<String> response = httpClient.GetStringAsync(uri);
+                return JsonConvert.DeserializeObjectAsync<List<Posts>>(response.Result).Result;
+            }
+        }
+
+        public IEnumerable<Posts> GetPosts(int i, int j)
+        {
+            string uri = baseUri + "/Posts/?start=" + i + "&limit=" + j;
 
             using (HttpClient httpClient = new HttpClient())
             {
