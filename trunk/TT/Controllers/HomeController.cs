@@ -9,7 +9,7 @@ namespace TT.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int start = 0, int limit = 10)
+        public ActionResult Index(int start = 0, int limit = 50)
         {
             if (start == 0)
                 return View(new TTRESTService().GetPosts(start, limit));

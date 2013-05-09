@@ -42,7 +42,7 @@
                 </li>
                 @if (Request.IsAuthenticated)
                 {
-                    <li><a id="addpost" href="http://localhost:14252/Service/AddPost">Add +</a></li>
+                    <li><a id="addpost" href="http://localhost:45659/Service/AddPost">Add +</a></li>
                     <li>
                         @Html.ActionLink("Profile", "Index", "Profile", new { id = WebSecurity.GetUserId(User.Identity.Name) }, null)
                         <ul>

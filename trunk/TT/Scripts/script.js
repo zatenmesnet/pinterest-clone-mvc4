@@ -18,7 +18,7 @@ $(window).scroll(function()
     {
         $('div#loadmoreajaxloader').show();
         $.ajax({
-        url: "http://localhost:14252/?start=" + start + "&limit=" + limit,
+        url: "http://localhost:45659/?start=" + start + "&limit=" + limit,
         success: function(html)
         {
             start += limit;
@@ -26,7 +26,7 @@ $(window).scroll(function()
             {
                 $(".main_container").append(html);
                 $('div#loadmoreajaxloader').hide();
-                setupMasonry();
+                $('.main_container').masonry('reload');
             }else
             {
                 $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
@@ -67,7 +67,7 @@ $(document).ready(function(){
              $('#fileupload').fileupload({
                 dataType: 'json',
                 done: function (e, data) {
-                    window.location.replace("http://localhost:14252/");
+                    window.location.replace("http://localhost:45659/");
                 },
                 add: function (e, data) {
                     $("#upload-button").empty();
@@ -103,7 +103,7 @@ $(document).ready(function(){
 
             //get comments
             $.ajax({ 
-              url: 'http://localhost:14252/Service/Comments/' + iPinId,
+              url: 'http://localhost:45659/Service/Comments/' + iPinId,
               cache: false, 
               success: function(html){
                 $('.comments').append(html);
