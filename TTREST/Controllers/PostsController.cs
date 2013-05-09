@@ -31,7 +31,7 @@ namespace TTREST.Controllers
         // POST api/posts
         public void Post([FromBody]Posts p)
         {
-            new DBModel().PostPost(p.title, p.filename, p.owner, p.dateuploaded);
+            new DBModel().PostPost(p.title, p.filename, p.owner, p.dateuploaded, p.width, p.height);
         }
 
         // PUT api/posts/5

@@ -45,7 +45,7 @@ namespace TT.Controllers
             {
                 // Pointer to file
                 var file = HttpContext.Request.Files[i];
-                var filename = User.Identity.Name + "_" + DateTime.UtcNow + "_" + file.FileName;
+                var filename = User.Identity.Name + "_" + DateTime.UtcNow.Subtract(new DateTime(1970,1,1,0,0,0, DateTimeKind.Utc)).TotalMilliseconds.ToString().Replace('.', '_') + "_" + file.FileName;
                 int width = 0, height = 0;
                 try
                 {
@@ -55,11 +55,11 @@ namespace TT.Controllers
                         {
                             using (var yourBitmap = new Bitmap(file.InputStream))
                             {
-                                width = yourBitmap.Width;
-                                height = yourBitmap.Height;
-
                                 yourBitmap.Save(memoryStream, ImageFormat.Jpeg);
 
+                                width = yourBitmap.Width;
+                                height = yourBitmap.Height; 
+                                
                                 AsyncCallback callback = new AsyncCallback(uploadComplete);
                                 var request = new TransferUtilityUploadRequest();
                                 request.BucketName = "TTPosts";
