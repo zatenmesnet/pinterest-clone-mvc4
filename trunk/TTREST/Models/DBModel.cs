@@ -120,8 +120,7 @@ namespace TTModels
                 //or use one passed into it.
                 var post = GetPost(id, conn);
                 var profile = GetProfile(post.owner, conn);
-                Image img = Image.FromFile(@"C:\Users\bradley\Documents\Visual Studio 2010\Projects\TT\TT\" + post.filename);
-                return new PostUserCombined() { Post = post, Profile = profile, Width = img.Width.ToString(), Height = img.Height.ToString() };
+                return new PostUserCombined() { Post = post, Profile = profile, Width = post.width.ToString(), Height = post.height.ToString() };
             }
         }
 

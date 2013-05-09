@@ -17,5 +17,8 @@ namespace TTModels
         public int repin_count { get; set; }
         public int like_count { get; set; }
         public string tags { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+        public int type { get; set; }
     }
 }
