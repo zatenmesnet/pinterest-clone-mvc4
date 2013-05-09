@@ -58,3 +58,4 @@ C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\DotNetOpenAuth.
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.csprojResolveAssemblyReference.cache
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.dll
 C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\obj\Debug\TT.pdb
+C:\Users\bradley\documents\visual studio 2010\Projects\TT\TT\bin\AWSSDK.dll
