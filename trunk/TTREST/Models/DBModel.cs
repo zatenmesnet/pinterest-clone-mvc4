@@ -142,13 +142,13 @@ namespace TTModels
             }
         }
 
-        public void PostPost(string title, string filename, int owner, DateTime date)
+        public void PostPost(string title, string filename, int owner, DateTime date, int width, int height)
         {
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
 
-                Posts p = new Posts() { title = title, filename = filename, owner = owner, dateuploaded = date };
+                Posts p = new Posts() { title = title, filename = filename, owner = owner, dateuploaded = date, width = width, height = height };
 
                 var i = conn.Insert(p);
             }
